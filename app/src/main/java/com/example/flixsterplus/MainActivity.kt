@@ -3,6 +3,7 @@ package com.example.flixsterplus
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
@@ -39,8 +40,11 @@ class MainActivity : AppCompatActivity() {
         rvPopularMovie=findViewById<RecyclerView>(R.id.rv_upcoming_movie)
         val upcomingMovieAdapter =PopularMovieAdapter(this, popularMovieList)
         rvPopularMovie.adapter = upcomingMovieAdapter
-
-        rvPopularMovie.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        rvPopularMovie.layoutManager = LinearLayoutManager(this).also {
+            val dividerItemDecoration = DividerItemDecoration(this, it.orientation)
+            rvPopularMovie.addItemDecoration(dividerItemDecoration)
+        }
+        //rvPopularMovie.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         val client = AsyncHttpClient()
 
         client.get(ARTICLE_SEARCH_URL, object : JsonHttpResponseHandler() {

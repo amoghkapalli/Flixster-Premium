@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/mediumPurple">
 
     <TextView
         android:id="@+id/tv_title_1"
@@ -14,6 +15,7 @@
         android:textStyle="bold"
         android:layout_margin="10dp"
         android:textSize="23sp"
+        android:textColor="@color/dark_purple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
